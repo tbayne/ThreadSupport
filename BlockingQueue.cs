@@ -11,6 +11,13 @@ namespace ThreadSupport
         //private Queue<T> _queue = new Queue<T>();
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
         private BlockingCollection<T> _queue = new BlockingCollection<T>();
+
+        public bool TryTake(int millisecondsTimeout, out T item)
+        {
+            var result = _queue.TryTake(out item, millisecondsTimeout);
+            return result;
+        }
+
         public T Dequeue()
         {
             T result;
