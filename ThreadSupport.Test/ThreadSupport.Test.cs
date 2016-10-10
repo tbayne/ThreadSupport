@@ -6,6 +6,14 @@ namespace ThreadSupport.Test
     [TestFixture]
     public class ThreadSupportTest
     {
+        /*
+        [Test]
+        public void ShouldCreateNewQueueWhenCreatingThread()
+        {
+            
+        }
+        */
+
         [Test]
         public void ShouldEnqueAndDequeTheSameMessage()
         {
