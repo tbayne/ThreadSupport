@@ -5,6 +5,8 @@ A general purpose .NET library to support threads and blocking queues to feed th
 
 Threads are subclassed from the BaseThread class.  Each thread has it's own message queue, and can access the queue's of other threads by accessing the BaseThread's static queueManager (qm).
 
+Utilizes .Net 4.5 Concurrent Collections 
+
 ## .NET Version: 4.5
 
 ## Prerequisites
