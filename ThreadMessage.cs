@@ -9,6 +9,7 @@ namespace ThreadSupport
         Bool,
         String,
         Int,
+        Long,
         Object
         }
 
@@ -83,6 +84,9 @@ namespace ThreadSupport
                         break;
                     case "SYSTEM.BOOLEAN":
                         t = TmDataTypes.Bool;
+                        break;
+                    case "SYSTEM.INT64":
+                        t = TmDataTypes.Long;
                         break;
                     default:
                         t = TmDataTypes.Object;
@@ -167,6 +171,27 @@ namespace ThreadSupport
                 }
             return rc;
             }
+
+        public long GetLong(string key)
+        {
+            Lasterror = string.Empty;
+            long rc;
+            try
+            {
+                if (GetDataType(_data[key]) == TmDataTypes.Long)
+                    rc = (long)_data[key];
+                else
+                {
+                    rc = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Lasterror = ex.Message;
+                rc = 0;
+            }
+            return rc;
+        }
 
         public object GetObject(string key)
             {

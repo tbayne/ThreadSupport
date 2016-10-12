@@ -79,7 +79,7 @@ namespace ThreadSupport
             
             if ((tm.Cmd == Defines.ThreadExitMsg))
             {
-                //logger.Trace(ThreadName + "|Received Exit Command");
+                logger.Trace(ThreadName + "|Received Exit Command");
             }
             return (tm.Cmd != Defines.ThreadExitMsg);
         }
