@@ -19,8 +19,13 @@ namespace ThreadSupport
     {
         private volatile bool _running;
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private CancellationToken _cts;
 
-        
+        public bool isCancellationRequested
+        {
+            get { return _cts.IsCancellationRequested; }
+        }
+
         public string Qname { get; }
 
         public bool Running
@@ -28,6 +33,7 @@ namespace ThreadSupport
             get { return _running; }
             set { _running = value; }
         }
+
 
         private readonly BlockingQueue<ThreadMessage> _myQueue;
         public BlockingQueue<ThreadMessage> MyQueue
@@ -45,8 +51,11 @@ namespace ThreadSupport
 
         private static readonly QueueManager qm = QueueManager.Instance;
         
-        protected BaseThread(String threadName, String queueName)
+        protected BaseThread(String threadName, String queueName, CancellationToken cts)
         {
+            // Setup our cancellation token
+            _cts = cts;
+
             // Set our name
             ThreadName = threadName;
 
