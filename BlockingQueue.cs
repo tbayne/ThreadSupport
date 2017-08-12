@@ -25,7 +25,7 @@ namespace ThreadSupport
         _inBoundMessagesReceived = Metric.Counter(QueueStatsName + "Received Messages", Unit.Custom("Incoming Messages"));
         _inBoundMsgsPerSecond = Metric.Meter(QueueStatsName + "Inbound MPS", Unit.Items, TimeUnit.Seconds);
         _outBoundMessagesReceived = Metric.Counter(QueueStatsName + "Processed Messages", Unit.Custom("Incoming Messages"));
-        _outBoundMsgsPerSecond = Metric.Meter(QueueStatsName + " Processed MPS", Unit.Items, TimeUnit.Seconds);
+        _outBoundMsgsPerSecond = Metric.Meter(QueueStatsName + " Processed MPS", Unit.Items, TimeUnit.Seconds); 
         _enableStats = true;
         }
 
