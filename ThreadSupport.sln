@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D96AC00-55C4-4E73-9A3C-C98C338BEF13}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadSupport", "ThreadSupport.csproj", "{9BF57D9B-5B0C-4575-BD9F-088D4B500665}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadSupport.Test", "ThreadSupport.Test\ThreadSupport.Test.csproj", "{ABFBAE9B-18B6-491B-9AA6-BB846850E239}"
