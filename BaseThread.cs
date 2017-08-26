@@ -63,7 +63,7 @@ namespace ThreadSupport
 
             // Create our queue
             _myQueue = new BlockingQueue<ThreadMessage>();
-            _myQueue.SetupQueueStats(queueName);
+            //_myQueue.SetupQueueStats(queueName);
 
             // Name our queue statistics counter
             //_myQueue.SetupQueueStats(ThreadName + "Q");

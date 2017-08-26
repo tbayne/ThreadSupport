@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using Metrics;
+//using Metrics;
 
 namespace ThreadSupport
 {
@@ -14,12 +14,12 @@ namespace ThreadSupport
         private BlockingCollection<T> _queue = new BlockingCollection<T>();
         // Setup our Stats
         private bool _enableStats = false;
-
+        /*
         private Counter _inBoundMessagesReceived;
         private Meter _inBoundMsgsPerSecond;
         private Counter _outBoundMessagesReceived;
         private Meter _outBoundMsgsPerSecond;
-
+        
         public void SetupQueueStats(string QueueStatsName)
         {
         _inBoundMessagesReceived = Metric.Counter(QueueStatsName + "Received Messages", Unit.Custom("Incoming Messages"));
@@ -28,7 +28,7 @@ namespace ThreadSupport
         _outBoundMsgsPerSecond = Metric.Meter(QueueStatsName + " Processed MPS", Unit.Items, TimeUnit.Seconds); 
         _enableStats = true;
         }
-
+        */
     public bool TryTake(int millisecondsTimeout, out T item)
         {
             var result = _queue.TryTake(out item, millisecondsTimeout);
@@ -41,8 +41,8 @@ namespace ThreadSupport
             _queue.TryTake(out result);
             if (_enableStats)
             {
-                _outBoundMessagesReceived.Increment();
-                _outBoundMsgsPerSecond.Mark();
+                //_outBoundMessagesReceived.Increment();
+                //_outBoundMsgsPerSecond.Mark();
             }
             return result;
         }
@@ -54,8 +54,8 @@ namespace ThreadSupport
             Count++;
             if (_enableStats)
             {
-                _inBoundMessagesReceived.Increment();
-                _inBoundMsgsPerSecond.Mark();
+                //_inBoundMessagesReceived.Increment();
+                //_inBoundMsgsPerSecond.Mark();
             }
         }
 
