@@ -29,7 +29,15 @@ namespace ThreadSupport
         _enableStats = true;
         }
         */
-    public bool TryTake(int millisecondsTimeout, out T item)
+        
+        public void Clear()
+        {
+            while (Count > 0) {
+                Dequeue();
+            }
+        }
+        
+        public bool TryTake(int millisecondsTimeout, out T item)
         {
             var result = _queue.TryTake(out item, millisecondsTimeout);
             return result;
