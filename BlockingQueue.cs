@@ -39,6 +39,7 @@ namespace ThreadSupport
         {
             T result;
             _queue.TryTake(out result);
+            Count--;
             if (_enableStats)
             {
                 //_outBoundMessagesReceived.Increment();
