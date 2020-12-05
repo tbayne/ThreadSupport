@@ -8,7 +8,7 @@ namespace ThreadSupport
 
     public class BlockingQueue<T> : IEnumerable<T>
     {
-        public int Count { get; private set; }
+        
         //private Queue<T> _queue = new Queue<T>();
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
         private BlockingCollection<T> _queue = new BlockingCollection<T>();
@@ -29,11 +29,16 @@ namespace ThreadSupport
         _enableStats = true;
         }
         */
-    public bool TryTake(int millisecondsTimeout, out T item)
+
+        public int Count()
         {
-            var result = _queue.TryTake(out item, millisecondsTimeout);
-            return result;
+            return _queue.Count;
         }
+        public bool TryTake(int millisecondsTimeout, out T item)
+            {
+                var result = _queue.TryTake(out item, millisecondsTimeout);
+                return result;
+            }
 
         public T Dequeue()
         {
@@ -51,7 +56,6 @@ namespace ThreadSupport
         {
             if (data == null) throw new ArgumentNullException(nameof(data));
             _queue.TryAdd(data);
-            Count++;
             if (_enableStats)
             {
                 //_inBoundMessagesReceived.Increment();
