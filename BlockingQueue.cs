@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 //using Metrics;
@@ -44,6 +44,7 @@ namespace ThreadSupport
         {
             T result;
             _queue.TryTake(out result);
+            //Count--;
             if (_enableStats)
             {
                 //_outBoundMessagesReceived.Increment();
