@@ -34,6 +34,14 @@ namespace ThreadSupport
         {
             return _queue.Count;
         }
+
+        public void Clear()
+        {
+            while (Count > 0) {
+                Dequeue();
+            }
+        }
+
         public bool TryTake(int millisecondsTimeout, out T item)
             {
                 var result = _queue.TryTake(out item, millisecondsTimeout);
